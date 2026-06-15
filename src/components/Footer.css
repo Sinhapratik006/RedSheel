@@ -1,0 +1,93 @@
+.rs-footer {
+  background: var(--black);
+  padding: 48px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.rs-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.rs-logo-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: rsPulse 2s infinite;
+}
+
+@keyframes rsPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.3); }
+}
+
+.rs-footer-copy {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.rs-footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.rs-footer-links a {
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.rs-footer-links a:hover {
+  color: var(--text);
+}
+
+/* X link (active when handle is set in config.js) */
+.rs-footer-x-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.rs-footer-x-link:hover {
+  color: #1D9BF0;
+}
+
+.rs-footer-x-icon {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Placeholder shown until X_HANDLE is filled in config.js */
+.rs-footer-x-placeholder {
+  font-size: 13px;
+  color: var(--muted);
+  opacity: 0.35;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .rs-footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 36px 24px;
+  }
+}

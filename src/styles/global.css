@@ -1,0 +1,139 @@
+/* ── Global reset & CSS variables ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red: #C0132A;
+  --red-bright: #E8152F;
+  --black: #0A0A0A;
+  --dark: #111113;
+  --surface: #181820;
+  --surface2: #1E1E28;
+  --border: rgba(255, 255, 255, 0.07);
+  --text: #F0EDE8;
+  --muted: #7A7A8C;
+  --gold: #E8A020;
+  --reddit-orange: #FF4500;
+  --x-blue: #1D9BF0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--black);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── Shared section styles ── */
+.rs-section {
+  padding: 100px 48px;
+}
+
+.rs-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.rs-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rs-eyebrow::after {
+  content: '';
+  flex: 0 0 32px;
+  height: 1px;
+  background: var(--red);
+}
+
+.rs-section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.rs-section-sub {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 520px;
+}
+
+/* ── Shared buttons ── */
+.rs-btn-primary {
+  background: var(--red);
+  color: #fff;
+  padding: 15px 32px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.rs-btn-primary:hover {
+  background: var(--red-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(192, 19, 42, 0.4);
+}
+
+.rs-btn-ghost {
+  background: transparent;
+  color: var(--text);
+  padding: 15px 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.rs-btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ── Scroll reveal ── */
+.rs-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.rs-reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .rs-section {
+    padding: 80px 24px;
+  }
+}
