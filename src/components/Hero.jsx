@@ -1,5 +1,5 @@
+"use client";
 import { scrollTo } from "../utils/scrollTo";
-import "./Hero.css";
 
 export default function Hero() {
   return (

@@ -1,5 +1,3 @@
-import "./Services.css";
-
 const SERVICES = [
   {
     featured: true,

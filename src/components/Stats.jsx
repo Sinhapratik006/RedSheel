@@ -1,5 +1,3 @@
-import "./Stats.css";
-
 const STATS = [
   { num: "12", sup: "M+", label: "Impressions Driven" },
   { num: "4.8", sup: "×",  label: "Avg. Engagement Lift" },

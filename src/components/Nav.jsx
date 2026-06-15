@@ -1,5 +1,5 @@
+"use client";
 import { scrollTo } from "../utils/scrollTo";
-import "./Nav.css";
 
 export default function Nav() {
   return (

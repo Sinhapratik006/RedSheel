@@ -1,0 +1,115 @@
+/* [project]/src/components/Services.css [app-client] (css) */
+.rs-services-bg {
+  background: var(--black);
+}
+
+.rs-services-layout {
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 60px;
+  display: grid;
+}
+
+.rs-service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px 32px;
+  transition: border-color .3s, transform .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.rs-service-card:hover {
+  border-color: #c0132a4d;
+  transform: translateY(-3px);
+}
+
+.rs-service-card.featured {
+  background: linear-gradient(135deg, #c0132a1a, #c0132a0a);
+  border-color: #c0132a33;
+  grid-column: span 2;
+}
+
+.rs-service-glow {
+  opacity: .07;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+.rs-service-platform {
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  display: inline-flex;
+}
+
+.rs-platform-tag {
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.rs-reddit-tag {
+  color: var(--reddit-orange);
+  background: #ff45001f;
+}
+
+.rs-x-tag {
+  color: #aaa;
+  background: #ffffff0f;
+}
+
+.rs-both-tag {
+  color: #ff6b80;
+  background: #c0132a1f;
+}
+
+.rs-service-title {
+  color: var(--text);
+  margin-bottom: 12px;
+  font-family: Space Grotesk, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.rs-service-desc {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.rs-service-features {
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.rs-feature-tag {
+  color: var(--muted);
+  border: 1px solid var(--border);
+  background: #ffffff0a;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .rs-services-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rs-service-card.featured {
+    grid-column: span 1;
+  }
+}
+
+/*# sourceMappingURL=src_components_Services_css_1igg3k2._.single.css.map*/

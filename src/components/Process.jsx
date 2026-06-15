@@ -1,5 +1,3 @@
-import "./Process.css";
-
 const STEPS = [
   {
     n: 1,

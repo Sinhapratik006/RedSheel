@@ -1,5 +1,3 @@
-import "./Results.css";
-
 const RESULTS = [
   {
     metric: "340%",

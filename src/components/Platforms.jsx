@@ -1,5 +1,3 @@
-import "./Platforms.css";
-
 const REDDIT_ITEMS = [
   "Subreddit targeting & community infiltration",
   "Native post creation that earns upvotes",

@@ -1,0 +1,88 @@
+/* [project]/src/components/Platforms.css [app-client] (css) */
+.rs-platforms-bg {
+  background: var(--black);
+}
+
+.rs-platforms-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 60px;
+  display: grid;
+}
+
+.rs-platform-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rs-platform-card.reddit-card {
+  background: linear-gradient(145deg, #ff45000f 0%, var(--surface) 60%);
+}
+
+.rs-platform-card.x-card {
+  background: linear-gradient(145deg, #1d9bf00d 0%, var(--surface) 60%);
+}
+
+.rs-platform-logo {
+  margin-bottom: 20px;
+  font-family: Space Grotesk, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  display: block;
+}
+
+.rs-platform-card.reddit-card .rs-platform-logo {
+  color: var(--reddit-orange);
+}
+
+.rs-platform-card.x-card .rs-platform-logo {
+  color: var(--text);
+}
+
+.rs-platform-card h3 {
+  color: var(--text);
+  margin-bottom: 12px;
+  font-family: Space Grotesk, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.rs-platform-card p {
+  color: var(--muted);
+  margin-bottom: 28px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.rs-platform-list {
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  display: flex;
+}
+
+.rs-platform-list li {
+  color: var(--muted);
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  display: flex;
+}
+
+.rs-platform-list li:before {
+  content: "→";
+  color: var(--red);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+@media (max-width: 768px) {
+  .rs-platforms-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*# sourceMappingURL=src_components_Platforms_css_1igg3k2._.single.css.map*/
