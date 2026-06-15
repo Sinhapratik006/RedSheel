@@ -1,6 +1,6 @@
+"use client";
 import { X_HANDLE, COPYRIGHT_YEAR } from "../config";
 import { scrollTo } from "../utils/scrollTo";
-import "./Footer.css";
 
 export default function Footer() {
   const hasHandle = X_HANDLE && X_HANDLE.trim() !== "";
