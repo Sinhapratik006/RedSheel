@@ -1,71 +1,82 @@
+"use client";
+
+import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
+import SectionShell from "./SectionShell";
+import BentoCard from "./BentoCard";
+
 const SERVICES = [
   {
-    featured: true,
-    tag: "Reddit + X", tagClass: "rs-both-tag",
-    glowColor: "var(--red)",
-    title: "Full-Funnel Community Growth",
-    desc: "We build your brand across both platforms simultaneously — driving Reddit thread visibility while growing your X audience. Most agencies pick one. We specialize in the synergy between both ecosystems.",
-    features: ["Cross-platform strategy", "Audience mapping", "Content calendar", "Monthly reporting"],
+    title: "Full-funnel community growth",
+    desc: "Build Reddit proof and X momentum together so both channels reinforce the same buying narrative.",
+    features: ["Cross-platform strategy", "Audience mapping", "Narrative planning"],
   },
   {
-    featured: false,
-    tag: "Reddit", tagClass: "rs-reddit-tag",
-    glowColor: "var(--reddit-orange)",
-    title: "Reddit Community Management",
-    desc: "Authentic engagement in subreddits where your buyers live. We find the right communities, create content that doesn't get downvoted, and build genuine brand trust.",
-    features: ["Subreddit research", "AMA coordination", "Comment seeding"],
+    title: "Reddit community management",
+    desc: "Native participation, AMA support, and trust-first positioning that can survive skeptical threads.",
+    features: ["Subreddit research", "Comment strategy", "AMA coordination"],
   },
   {
-    featured: false,
-    tag: "X / Twitter", tagClass: "rs-x-tag",
-    glowColor: "var(--x-blue)",
-    title: "X Account Growth & Monetization",
-    desc: "We grow your X following with real people in your niche. Ghost-writing, reply strategy, thread creation, and monetization setup — from 0 to revenue.",
-    features: ["Thread writing", "Ghost-writing", "Reply strategy"],
+    title: "X authority systems",
+    desc: "Founder voice, threads, reply loops, and conversion paths designed for visible authority.",
+    features: ["Thread writing", "Reply systems", "Founder positioning"],
   },
   {
-    featured: false,
-    tag: "Reddit", tagClass: "rs-reddit-tag",
-    glowColor: "var(--red)",
-    title: "Reddit Ads Management",
-    desc: "Reddit's ad platform is underpriced and underutilized. We run targeted campaigns against subreddits with surgical precision — lower CPCs, higher intent.",
-    features: ["Campaign setup", "Subreddit targeting", "A/B testing"],
+    title: "Precision ads management",
+    desc: "Subreddit-targeted campaigns with sharper messaging and lower waste than generic paid social.",
+    features: ["Campaign setup", "Creative testing", "Intent reporting"],
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 export default function Services() {
   return (
-    <section className="rs-section rs-services-bg" id="services">
-      <div className="rs-section-inner">
-        <div className="rs-eyebrow rs-reveal">What We Do</div>
-        <h2 className="rs-section-title rs-reveal">
-          Every service built for<br />platform-native growth
-        </h2>
-        <p className="rs-section-sub rs-reveal">
-          No generic social media playbooks. Everything we do is engineered for how Reddit and X actually work.
-        </p>
+    <SectionShell id="services" noPadding className="pt-40 pb-20 lg:pt-48 lg:pb-28">
+      <SectionHeading
+        eyebrow="What we do"
+        title="Focused systems. Real traction."
+        description="No generic marketing menu. Just specialized Reddit and X systems for trust, authority, and demand."
+      />
 
-        <div className="rs-services-layout">
-          {SERVICES.map((s) => (
-            <div
-              key={s.title}
-              className={`rs-service-card rs-reveal${s.featured ? " featured" : ""}`}
-            >
-              <div className="rs-service-glow" style={{ background: s.glowColor }} />
-              <div className="rs-service-platform">
-                <span className={`rs-platform-tag ${s.tagClass}`}>{s.tag}</span>
-              </div>
-              <div className="rs-service-title">{s.title}</div>
-              <div className="rs-service-desc">{s.desc}</div>
-              <div className="rs-service-features">
-                {s.features.map((f) => (
-                  <span className="rs-feature-tag" key={f}>{f}</span>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
+        className="mt-20 grid gap-6 lg:mt-24 md:grid-cols-2"
+      >
+        {SERVICES.map((service) => (
+          <motion.article key={service.title} variants={cardVariants}>
+            <BentoCard className="flex h-full flex-col p-8">
+              <h3 className="font-display text-2xl font-bold leading-tight text-zinc-950 dark:text-zinc-50">
+                {service.title}
+              </h3>
+              <p className="mt-4 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {service.desc}
+              </p>
+              <div className="mt-8 flex-1 space-y-4">
+                {service.features.map((feature) => (
+                  <div
+                    key={feature}
+                    className="flex items-center gap-3 text-[15px] font-medium text-zinc-700 dark:text-zinc-300"
+                  >
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                    {feature}
+                  </div>
                 ))}
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+            </BentoCard>
+          </motion.article>
+        ))}
+      </motion.div>
+    </SectionShell>
   );
 }
