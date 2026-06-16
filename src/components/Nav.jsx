@@ -37,9 +37,9 @@ export default function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full pt-4 sm:pt-6">
-      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-6xl px-4 sm:px-8 lg:px-12">
         <div
-          className={`flex w-full items-center justify-between rounded-2xl px-4 py-2.5 sm:px-6 sm:py-3 transition-all duration-300 ${
+          className={`flex w-full items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-300 sm:px-5 sm:py-3 ${
             isScrolled || isMobileMenuOpen
               ? "bg-white/90 shadow-[0_4px_30px_rgba(0,0,0,0.05)] backdrop-blur-xl dark:border dark:border-zinc-800/50 dark:bg-zinc-950/90 dark:shadow-none"
               : "border border-transparent bg-transparent"
@@ -109,7 +109,7 @@ export default function Nav() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute left-4 right-4 top-[76px] mt-2 origin-top rounded-2xl bg-white p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] dark:border dark:border-zinc-800/50 dark:bg-zinc-950 sm:left-8 sm:right-8 md:hidden"
+              className="absolute left-4 right-4 top-[76px] mt-2 origin-top rounded-xl bg-white p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] dark:border dark:border-zinc-800/50 dark:bg-zinc-950 sm:left-8 sm:right-8 md:hidden"
             >
               <nav className="flex flex-col gap-4">
                 {NAV_ITEMS.map((item) => {

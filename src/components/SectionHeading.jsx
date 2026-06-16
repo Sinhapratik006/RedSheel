@@ -24,16 +24,24 @@ export default function SectionHeading({
     >
       <motion.p
         variants={fadeInUp}
-        className="text-[13px] font-bold uppercase tracking-widest text-brand-500"
+        className="text-[13px] font-bold uppercase text-brand-500"
       >
         {eyebrow}
       </motion.p>
       <motion.h2
         variants={fadeInUp}
-        className={`mt-4 max-w-3xl font-display text-3xl font-medium tracking-tight text-zinc-900 dark:text-white sm:text-4xl ${copyWidth}`}
+        className={`mt-4 max-w-3xl font-display text-3xl font-medium text-zinc-900 dark:text-white sm:text-4xl ${copyWidth}`}
       >
         {title}
       </motion.h2>
+      {description ? (
+        <motion.p
+          variants={fadeInUp}
+          className={`mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400 ${copyWidth}`}
+        >
+          {description}
+        </motion.p>
+      ) : null}
     </motion.div>
   );
 }

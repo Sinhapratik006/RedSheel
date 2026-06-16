@@ -1,7 +1,7 @@
 export default function SectionShell({
   id,
   children,
-  width = "max-w-7xl",
+  width = "max-w-6xl",
   className = "",
   contentClassName = "",
   noPadding = false,

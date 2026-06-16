@@ -24,7 +24,7 @@ export default function BentoCard({ children, className = "", href, ...props }) 
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className={`group relative block overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.02)] transition-colors dark:border-zinc-800/80 dark:bg-[#0a0a0a] ${className}`}
+      className={`group relative block overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.02)] transition-colors dark:border-zinc-800/80 dark:bg-[#0a0a0a] ${className}`}
       {...props}
     >
       <div
