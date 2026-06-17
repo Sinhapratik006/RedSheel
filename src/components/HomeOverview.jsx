@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { fraunces } from "../lib/fonts";
+import { display } from "../lib/fonts";
 import SectionHeading from "./SectionHeading";
 import SectionShell from "./SectionShell";
 
@@ -101,7 +101,7 @@ function HoverTile({ href, className = "", children }) {
 
 export default function HomeOverview() {
   return (
-    <SectionShell noPadding className="py-20 sm:py-24 lg:py-28">
+    <SectionShell noPadding className="py-14 sm:py-24 lg:py-28">
       <SectionHeading
         eyebrow="Explore RedSheel"
         title="Move through the system by decision."
@@ -109,26 +109,26 @@ export default function HomeOverview() {
       />
 
       <motion.div
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-        className="mt-20 grid auto-rows-[minmax(180px,auto)] gap-4 sm:grid-cols-2 lg:mt-24 lg:grid-cols-6"
+        className="mt-11 grid auto-rows-[minmax(160px,auto)] gap-3 sm:mt-20 sm:grid-cols-2 sm:gap-4 lg:mt-24 lg:grid-cols-6"
       >
         <motion.div variants={cardVariants} className="sm:col-span-2 lg:col-span-4 lg:row-span-2">
           <HoverTile
             href={PREVIEWS[0].href}
-            className={`${tileBase} flex min-h-[360px] flex-col justify-between overflow-hidden border-[#d6c7b4] bg-[#fff9f1] p-7 dark:border-[#4a392b] dark:bg-[#241c16] sm:p-9`}
+            className={`${tileBase} flex min-h-[280px] flex-col justify-between overflow-hidden border-[#d6c7b4] bg-[#fff9f1] p-4 dark:border-[#4a392b] dark:bg-[#241c16] sm:min-h-[360px] sm:p-9`}
           >
             <div className="flex h-full flex-col justify-between">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-500">
                 {PREVIEWS[0].label}
               </p>
-              <h2 className={`${fraunces.className} mt-6 max-w-2xl text-[2.35rem] leading-[0.96] text-[#241913] dark:text-[#fff7ec] sm:text-[3.15rem]`}>
+              <h2 className={`${display.className} mt-4 max-w-2xl text-[1.65rem] leading-[1.02] text-[#241913] dark:text-[#fff7ec] sm:mt-6 sm:text-[3.15rem]`}>
                 {PREVIEWS[0].title}
               </h2>
-              <p className="theme-copy mt-5 max-w-xl text-[1.02rem] leading-7">
+              <p className="theme-copy mt-3 max-w-xl text-[0.84rem] leading-6 sm:mt-5 sm:text-[1.02rem] sm:leading-7">
                 {PREVIEWS[0].body}
               </p>
             </div>
@@ -136,7 +136,7 @@ export default function HomeOverview() {
               {["Positioning", "Founder voice", "Campaign rhythm"].map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-[#ddccba] bg-[#fbf2e6] px-3 py-1.5 text-[12px] text-[#6f5947] dark:border-[#3b2d22] dark:bg-[#19130f] dark:text-[#d9ccb9]"
+                  className="rounded-full border border-[#ddccba] bg-[#fbf2e6] px-2.5 py-1.5 text-[11px] text-[#6f5947] dark:border-[#3b2d22] dark:bg-[#19130f] dark:text-[#d9ccb9] sm:px-3 sm:text-[12px]"
                 >
                   {item}
                 </span>
@@ -149,18 +149,18 @@ export default function HomeOverview() {
         <motion.div variants={cardVariants} className="lg:col-span-2">
           <HoverTile
             href={PREVIEWS[1].href}
-            className={`${tileBase} flex min-h-[220px] flex-col justify-between border-[#d6c7b4] bg-[#fbf2e6] p-7 dark:border-[#3a2c21] dark:bg-[#1d1713]`}
+            className={`${tileBase} flex min-h-[180px] flex-col justify-between border-[#d6c7b4] bg-[#fbf2e6] p-4 dark:border-[#3a2c21] dark:bg-[#1d1713] sm:min-h-[200px] sm:p-7`}
           >
             <div className="flex h-full flex-col justify-between">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-500">
                 {PREVIEWS[1].label}
               </p>
-              <h3 className={`${fraunces.className} mt-5 text-[2rem] leading-[0.98] text-[#241913] dark:text-[#fff7ec]`}>
+              <h3 className={`${display.className} mt-4 text-[1.42rem] leading-[1.02] text-[#241913] dark:text-[#fff7ec] sm:mt-5 sm:text-[2rem]`}>
                 {PREVIEWS[1].title}
               </h3>
             </div>
-            <p className="theme-copy mt-5 text-[15px] leading-7">
+            <p className="theme-copy mt-4 text-[0.84rem] leading-6 sm:mt-5 sm:text-[15px] sm:leading-7">
               {PREVIEWS[1].body}
             </p>
             </div>
@@ -168,7 +168,7 @@ export default function HomeOverview() {
         </motion.div>
 
         <motion.div variants={cardVariants} className="lg:col-span-2">
-          <HoverTile className={`${tileBase} flex h-full min-h-[220px] flex-col justify-between border-[#d6c7b4] bg-[#fff9f1] p-7 dark:border-[#4a392b] dark:bg-[#241c16]`}>
+          <HoverTile className={`${tileBase} flex h-full min-h-[180px] flex-col justify-between border-[#d6c7b4] bg-[#fff9f1] p-4 dark:border-[#4a392b] dark:bg-[#241c16] sm:min-h-[200px] sm:p-7`}>
             <div className="flex h-full flex-col justify-between">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#8a6c57] dark:text-[#a99478]">
               Platforms
@@ -177,7 +177,7 @@ export default function HomeOverview() {
               {PLATFORMS.map((platform) => (
                 <span
                   key={platform}
-                  className="rounded-full bg-[#f2e6d8] px-3 py-2 text-sm text-[#5f4c3d] dark:bg-[#2a2019] dark:text-[#d9ccb9]"
+                  className="rounded-full bg-[#f2e6d8] px-2.5 py-1.5 text-xs text-[#5f4c3d] dark:bg-[#2a2019] dark:text-[#d9ccb9] sm:px-3 sm:py-2 sm:text-sm"
                 >
                   {platform}
                 </span>
@@ -190,10 +190,10 @@ export default function HomeOverview() {
         <motion.div variants={cardVariants} className="lg:col-span-2">
           <HoverTile
             href="/results"
-            className={`${tileBase} flex min-h-[180px] flex-col justify-between border-[#241913] bg-[#241913] p-7 text-[#fff7ec] dark:border-[#5b4736] dark:bg-[#fff7ec] dark:text-[#241913]`}
+            className={`${tileBase} flex min-h-[150px] flex-col justify-between border-[#241913] bg-[#241913] p-4 text-[#fff7ec] dark:border-[#5b4736] dark:bg-[#fff7ec] dark:text-[#241913] sm:min-h-[170px] sm:p-7`}
           >
             <div className="flex h-full flex-col justify-between">
-            <p className={`${fraunces.className} text-[3.1rem] leading-none`}>
+            <p className={`${display.className} text-[2.25rem] leading-none sm:text-[3.1rem]`}>
               12M+
             </p>
             <div>
@@ -207,9 +207,9 @@ export default function HomeOverview() {
         </motion.div>
 
         <motion.div variants={cardVariants} className="lg:col-span-2">
-          <HoverTile className={`${tileBase} flex h-full min-h-[180px] flex-col justify-between border-[#d6c7b4] bg-[#fbf2e6] p-7 dark:border-[#3a2c21] dark:bg-[#1d1713]`}>
+          <HoverTile className={`${tileBase} flex h-full min-h-[150px] flex-col justify-between border-[#d6c7b4] bg-[#fbf2e6] p-4 dark:border-[#3a2c21] dark:bg-[#1d1713] sm:min-h-[170px] sm:p-7`}>
             <div className="flex h-full flex-col justify-between">
-            <p className={`${fraunces.className} text-[3.1rem] leading-none text-[#241913] dark:text-[#fff7ec]`}>
+            <p className={`${display.className} text-[2.25rem] leading-none text-[#241913] dark:text-[#fff7ec] sm:text-[3.1rem]`}>
               4.8x
             </p>
             <div>
@@ -227,12 +227,12 @@ export default function HomeOverview() {
         <motion.div variants={cardVariants} className="sm:col-span-2 lg:col-span-2">
           <HoverTile
             href="/contact"
-            className={`${tileBase} flex min-h-[180px] flex-col justify-between border-[#d6c7b4] bg-[#fff9f1] p-7 dark:border-[#4a392b] dark:bg-[#241c16]`}
+            className={`${tileBase} flex min-h-[150px] flex-col justify-between border-[#d6c7b4] bg-[#fff9f1] p-4 dark:border-[#4a392b] dark:bg-[#241c16] sm:min-h-[170px] sm:p-7`}
           >
             <div className="flex h-full flex-col justify-between">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className={`${fraunces.className} text-[2.4rem] leading-none text-[#241913] dark:text-[#fff7ec]`}>
+                <p className={`${display.className} text-[1.8rem] leading-none text-[#241913] dark:text-[#fff7ec] sm:text-[2.4rem]`}>
                   80+
                 </p>
                 <p className="mt-2 text-sm text-[#7a614d] dark:text-[#a99478]">
@@ -240,7 +240,7 @@ export default function HomeOverview() {
                 </p>
               </div>
               <div>
-                <p className={`${fraunces.className} text-[2.4rem] leading-none text-[#241913] dark:text-[#fff7ec]`}>
+                <p className={`${display.className} text-[1.8rem] leading-none text-[#241913] dark:text-[#fff7ec] sm:text-[2.4rem]`}>
                   98%
                 </p>
                 <p className="mt-2 text-sm text-[#7a614d] dark:text-[#a99478]">

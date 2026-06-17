@@ -3,9 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: var(--font-jetbrains);
-  --font-display: var(--font-fraunces);
-  --font-mono: var(--font-jetbrains);
+  --font-sans: var(--font-redsheel-sans);
+  --font-display: var(--font-redsheel-display);
+  --font-mono: var(--font-redsheel-mono);
 
   --color-ink-950: #09090b;
   --color-ink-900: #111114;
@@ -34,7 +34,7 @@
   }
 
   body {
-    font-family: var(--font-jetbrains), monospace;
+    font-family: var(--font-sans), system-ui, sans-serif;
     @apply overflow-x-hidden bg-[#f5efe4] text-zinc-950 dark:bg-[#17120f] dark:text-zinc-50;
   }
 
@@ -42,8 +42,8 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-display), serif;
-    font-weight: 400;
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 700;
     letter-spacing: 0;
   }
 
@@ -75,7 +75,7 @@
   }
 
   .theme-pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-[#d8c8b5] bg-[#fff7ee] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#8a6c57] dark:border-[#463427] dark:bg-[#201813] dark:text-[#b79f84];
+    @apply inline-flex items-center gap-2 rounded-full border border-[#d8c8b5] bg-[#fff7ee] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[#8a6c57] dark:border-[#463427] dark:bg-[#201813] dark:text-[#b79f84] sm:px-4 sm:text-[11px] sm:tracking-[0.18em];
   }
 
   .theme-copy {

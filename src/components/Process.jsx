@@ -1,5 +1,5 @@
 import { BarChart3, Compass, PenLine, ScanSearch } from "lucide-react";
-import { fraunces } from "../lib/fonts";
+import { display } from "../lib/fonts";
 import SectionHeading from "./SectionHeading";
 import SectionShell from "./SectionShell";
 import BentoCard from "./BentoCard";
@@ -48,10 +48,10 @@ export default function Process() {
         description="The process stays intentionally simple so execution can move fast without becoming messy."
       />
 
-      <div className="mt-24 grid gap-6 lg:mt-28 md:grid-cols-2 lg:grid-cols-6">
+      <div className="mt-16 grid gap-4 sm:gap-6 lg:mt-28 md:grid-cols-2 lg:grid-cols-6">
         {STEPS.map((step) => (
           <div key={step.n} className={step.className}>
-          <BentoCard className="flex h-full min-h-[260px] flex-col p-8">
+          <BentoCard className="flex h-full min-h-[230px] flex-col p-5 sm:min-h-[260px] sm:p-8">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#ddccba] bg-[#f7ede0] text-brand-500 transition group-hover:border-brand-500/30 group-hover:bg-brand-500/10 dark:border-[#3a2c21] dark:bg-[#201813]">
                 <step.icon className="h-5 w-5" />
@@ -60,7 +60,7 @@ export default function Process() {
                 {step.n}
               </span>
             </div>
-            <h3 className={`${fraunces.className} mt-6 text-[2rem] text-[#241913] dark:text-[#fff7ec]`}>
+            <h3 className={`${display.className} mt-5 text-[1.7rem] text-[#241913] dark:text-[#fff7ec] sm:mt-6 sm:text-[2rem]`}>
               {step.title}
             </h3>
             <p className="theme-copy mt-4 text-[15px] leading-relaxed">

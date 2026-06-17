@@ -23,9 +23,9 @@ const fadeUp = {
 
 export default function Stats() {
   return (
-    <SectionShell noPadding className="pb-16 pt-4 sm:pb-24 sm:pt-8">
+    <SectionShell noPadding className="pb-12 pt-2 sm:pb-24 sm:pt-8">
       <motion.div
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true }}
         variants={staggerVariants}
@@ -33,8 +33,8 @@ export default function Stats() {
       >
         {STATS.map((stat) => (
           <motion.div key={stat.label} variants={fadeUp}>
-            <BentoCard className="flex h-full rotate-[-0.6deg] flex-col justify-center p-8 text-center">
-              <div className="font-display text-[3.35rem] leading-none text-[#241913] dark:text-[#fff7ec]">
+            <BentoCard className="flex h-full rotate-[-0.6deg] flex-col justify-center p-5 text-center sm:p-8">
+              <div className="font-display text-[2.65rem] leading-none text-[#241913] dark:text-[#fff7ec] sm:text-[3.35rem]">
                 {stat.num}
                 <span className="text-brand-500">{stat.sup}</span>
               </div>

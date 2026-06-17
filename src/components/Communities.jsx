@@ -8,7 +8,7 @@ import {
   FaRedditAlien,
   FaXTwitter,
 } from "react-icons/fa6";
-import { fraunces } from "../lib/fonts";
+import { display } from "../lib/fonts";
 import SectionShell from "./SectionShell";
 
 const PLATFORMS = [
@@ -55,9 +55,9 @@ const fadeInUp = {
 
 export default function Communities() {
   return (
-    <SectionShell id="communities" noPadding className="py-20 sm:py-24 lg:py-28">
+    <SectionShell id="communities" noPadding className="py-14 sm:py-24 lg:py-28">
       <motion.div
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
@@ -67,10 +67,10 @@ export default function Communities() {
           <p className="theme-pill">
             Communities
           </p>
-          <h2 className={`${fraunces.className} mx-auto mt-5 max-w-2xl text-[2rem] leading-none text-[#241913] dark:text-[#fff7ec] sm:text-[2.55rem]`}>
+          <h2 className={`${display.className} mx-auto mt-4 max-w-2xl text-[1.55rem] leading-[1.02] text-[#241913] dark:text-[#fff7ec] sm:mt-5 sm:text-[2.55rem]`}>
             We show up where people already talk.
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-[#6f5947] dark:text-[#b7a28a]">
+          <p className="mx-auto mt-3 max-w-md text-[0.82rem] leading-5 text-[#6f5947] dark:text-[#b7a28a] sm:mt-4 sm:text-sm sm:leading-6">
             No fake hype. Just useful answers, clear timing, and better handoffs.
           </p>
         </motion.div>
@@ -83,7 +83,7 @@ export default function Communities() {
             {[...PLATFORMS, ...PLATFORMS, ...PLATFORMS].map(({ name, note, Icon, accent }, index) => (
               <div
                 key={`${name}-${index}`}
-                className="flex min-w-[210px] items-center gap-3 rounded-2xl border border-[#dfcebb] bg-[#fffaf3]/88 p-3 text-left shadow-[0_10px_28px_rgba(74,39,21,0.05)] dark:border-[#3a2c21] dark:bg-[#19130f]/84"
+                className="flex min-w-[190px] items-center gap-3 rounded-2xl border border-[#dfcebb] bg-[#fffaf3]/88 p-3 text-left shadow-[0_10px_28px_rgba(74,39,21,0.05)] dark:border-[#3a2c21] dark:bg-[#19130f]/84 sm:min-w-[210px]"
                 aria-hidden={index >= PLATFORMS.length}
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#e4d4c2] bg-[#f7ede0] dark:border-[#3d3024] dark:bg-[#241c16]">
