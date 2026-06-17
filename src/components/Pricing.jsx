@@ -48,18 +48,18 @@ const PLANS = [
 
 export default function Pricing() {
   return (
-    <SectionShell id="pricing" noPadding className="pt-44 pb-24 lg:pt-52 lg:pb-32">
+    <SectionShell id="pricing" noPadding className="pb-20 pt-36 sm:pb-24 sm:pt-44 lg:pb-32 lg:pt-52">
       <SectionHeading
         eyebrow="Pricing"
         title="Straightforward plans, designed to read like a product."
         description="Clear progression, fewer distractions, and a clean comparison between what each scope handles."
       />
 
-      <div className="mt-24 grid gap-6 lg:mt-28 xl:grid-cols-3">
+      <div className="mt-16 grid gap-4 sm:gap-6 lg:mt-28 xl:grid-cols-3">
         {PLANS.map((plan) => (
           <article
             key={plan.name}
-            className={`theme-card relative flex flex-col p-8 transition-all ${
+            className={`theme-card relative flex flex-col p-5 transition-all sm:p-8 ${
               plan.featured
                 ? "border-brand-500/45 bg-[#fdf0f1] dark:bg-[#2a1a19]"
                 : ""
@@ -71,11 +71,11 @@ export default function Pricing() {
               </div>
             )}
 
-            <h3 className="font-display text-[2rem] text-[#241913] dark:text-[#fff7ec]">
+            <h3 className="font-display text-[1.75rem] text-[#241913] dark:text-[#fff7ec] sm:text-[2rem]">
               {plan.name}
             </h3>
             <div className="mt-4 flex items-end gap-2">
-              <span className="font-display text-[3.2rem] tracking-tight text-[#241913] dark:text-[#fff7ec]">
+              <span className="font-display text-[2.65rem] tracking-tight text-[#241913] dark:text-[#fff7ec] sm:text-[3.2rem]">
                 ${plan.price}
               </span>
               <span className="pb-2 text-sm font-medium text-[#8a6c57] dark:text-[#a99478]">

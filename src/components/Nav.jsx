@@ -36,7 +36,7 @@ export default function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full border-b-2 border-dashed border-[#d8c8b5] bg-[#f5efe4]/94 backdrop-blur-md dark:border-[#3d3024] dark:bg-[#17120f]/94">
-      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl px-2.5 sm:px-6 lg:px-12">
         <div
           className={`flex w-full items-center justify-between px-0 py-3 transition-all duration-300 sm:py-4 ${
             isScrolled || isMobileMenuOpen
@@ -116,7 +116,7 @@ export default function Nav() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute left-4 right-4 top-[72px] mt-2 origin-top rounded-[24px] border border-[#d6c7b4] bg-[#fff9f1] p-5 shadow-[0_18px_50px_rgba(74,39,21,0.14)] dark:border-[#4a392b] dark:bg-[#201913] dark:shadow-[0_18px_50px_rgba(0,0,0,0.32)] sm:left-8 sm:right-8 sm:top-[80px] md:hidden"
+              className="absolute left-2.5 right-2.5 top-[72px] mt-2 origin-top rounded-[22px] border border-[#d6c7b4] bg-[#fff9f1] p-4 shadow-[0_18px_50px_rgba(74,39,21,0.14)] dark:border-[#4a392b] dark:bg-[#201913] dark:shadow-[0_18px_50px_rgba(0,0,0,0.32)] sm:left-6 sm:right-6 sm:top-[80px] sm:p-5 md:hidden"
             >
               <nav className="flex flex-col gap-4">
                 {NAV_ITEMS.map((item) => {

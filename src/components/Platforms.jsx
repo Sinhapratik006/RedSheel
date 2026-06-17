@@ -1,5 +1,5 @@
 import { MessageSquareQuote, Rocket } from "lucide-react";
-import { fraunces } from "../lib/fonts";
+import { display } from "../lib/fonts";
 import SectionHeading from "./SectionHeading";
 import SectionShell from "./SectionShell";
 import BentoCard from "./BentoCard";
@@ -44,11 +44,11 @@ export default function Platforms() {
         description="We adapt the execution to each platform while keeping the system clear, measured, and easy to inspect."
       />
 
-      <div className="mt-24 grid gap-6 lg:mt-28 lg:grid-cols-2">
+      <div className="mt-16 grid gap-4 sm:gap-6 lg:mt-28 lg:grid-cols-2">
         {PLATFORM_CARDS.map((platform) => (
           <BentoCard
             key={platform.key}
-            className="flex flex-col p-8"
+            className="flex flex-col p-5 sm:p-8"
           >
             <div className="flex items-center justify-between gap-4">
               <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#8a6c57] dark:text-[#a99478]">
@@ -58,13 +58,13 @@ export default function Platforms() {
                 <platform.icon className="h-5 w-5" />
               </div>
             </div>
-            <h3 className={`${fraunces.className} mt-6 max-w-lg text-[2rem] leading-tight text-[#241913] dark:text-[#fff7ec]`}>
+            <h3 className={`${display.className} mt-5 max-w-lg text-[1.65rem] leading-tight text-[#241913] dark:text-[#fff7ec] sm:mt-6 sm:text-[2rem]`}>
               {platform.title}
             </h3>
             <p className="theme-copy mt-4 max-w-xl text-[15px] leading-relaxed">
               {platform.body}
             </p>
-            <ul className="mt-8 flex-1 space-y-4">
+            <ul className="mt-7 flex-1 space-y-3 sm:mt-8 sm:space-y-4">
               {platform.items.map((item) => (
                 <li
                   key={item}

@@ -1,12 +1,16 @@
-import { Fraunces, JetBrains_Mono } from "next/font/google";
+import { Geist_Mono, Manrope, Plus_Jakarta_Sans } from "next/font/google";
 
-export const fraunces = Fraunces({
-  weight: ["400", "700"],
+export const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-redsheel-display",
 });
 
-export const jetbrains = JetBrains_Mono({
+export const sans = Manrope({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-redsheel-sans",
+});
+
+export const mono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-redsheel-mono",
 });
