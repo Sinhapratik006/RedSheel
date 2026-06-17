@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 export default function Button({ 
   href, 
@@ -8,18 +7,32 @@ export default function Button({
   className = "", 
   icon = null 
 }) {
-  const baseStyles = "group relative inline-flex items-center justify-center overflow-hidden rounded-md px-5 py-2.5 text-sm font-semibold transition duration-200 active:scale-[0.98]";
+  const baseStyles = "group relative inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-full px-6 py-3 text-sm font-medium transition duration-200";
   
   const variants = {
-    primary: "bg-zinc-950 text-white shadow-sm hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200",
-    secondary: "border border-zinc-200 bg-white text-zinc-950 hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50 dark:hover:border-zinc-700 dark:hover:bg-zinc-900",
+    primary:
+      "bg-brand-500 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_16px_34px_rgba(243,68,81,0.24)] hover:bg-brand-600",
+    secondary:
+      "bg-[#fff8ef] text-[#241913] hover:bg-[#f8efe2] dark:bg-[#241c16] dark:text-[#f6ecde] dark:hover:bg-[#2a211b]",
   };
+
+  const accentChrome =
+    variant === "primary" || variant === "secondary" ? (
+      <span
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-[5px] rounded-full border-2 border-dashed ${
+          variant === "primary"
+            ? "border-white/55"
+            : "border-[#dfcfbc] dark:border-[#4d3a2c]"
+        }`}
+      />
+    ) : null;
 
   const buttonContent = (
     <span className="relative z-10 flex items-center gap-2">
       {children}
       {icon && (
-        <span className="transition-transform duration-300 group-hover:translate-x-1">
+        <span>
           {icon}
         </span>
       )}
@@ -29,6 +42,7 @@ export default function Button({
   if (href) {
     return (
       <Link href={href} className={`${baseStyles} ${variants[variant]} ${className}`}>
+        {accentChrome}
         {buttonContent}
       </Link>
     );
@@ -36,6 +50,7 @@ export default function Button({
 
   return (
     <button className={`${baseStyles} ${variants[variant]} ${className}`}>
+      {accentChrome}
       {buttonContent}
     </button>
   );

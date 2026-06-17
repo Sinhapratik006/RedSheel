@@ -6,7 +6,7 @@ export default function ThemeProvider({ children }) {
   return (
     <NextThemeProvider
       attribute="class"
-      defaultTheme="light"
+      defaultTheme="dark"
       disableTransitionOnChange
       enableSystem={false}
       storageKey="redsheel-theme"

@@ -1,6 +1,7 @@
 import SectionHeading from "./SectionHeading";
 import SectionShell from "./SectionShell";
 import BentoCard from "./BentoCard";
+import { fraunces } from "../lib/fonts";
 
 const RESULTS = [
   {
@@ -65,26 +66,26 @@ function FormattedMetric({ value }) {
 
 export default function Results() {
   return (
-    <SectionShell id="results">
+    <SectionShell id="results" noPadding className="pt-44 pb-24 lg:pt-52 lg:pb-32">
       <SectionHeading
         eyebrow="Results"
         title="Measured traction, with proof that stays readable."
         description="The goal is clearer authority, better response quality, and revenue signals the team can actually use."
       />
 
-      <div className="mt-20 grid gap-6 lg:mt-24 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-24 grid gap-6 lg:mt-28 md:grid-cols-2 xl:grid-cols-3">
         {RESULTS.map((result) => (
           <BentoCard
             key={result.metric}
             className="flex flex-col p-8"
           >
-            <p className="font-display text-5xl font-bold tracking-tight">
+            <p className={`${fraunces.className} text-[3rem] tracking-tight`}>
               <FormattedMetric value={result.metric} />
             </p>
-            <h3 className="mt-6 text-[17px] font-bold text-zinc-950 dark:text-zinc-50">
+            <h3 className="mt-6 text-[17px] font-bold text-[#241913] dark:text-[#fff7ec]">
               {result.label}
             </h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <p className="theme-copy mt-3 text-[15px] leading-relaxed">
               {result.desc}
             </p>
           </BentoCard>

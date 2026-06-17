@@ -48,21 +48,21 @@ const PLANS = [
 
 export default function Pricing() {
   return (
-    <SectionShell id="pricing" noPadding className="pt-40 pb-20 lg:pt-48 lg:pb-28">
+    <SectionShell id="pricing" noPadding className="pt-44 pb-24 lg:pt-52 lg:pb-32">
       <SectionHeading
         eyebrow="Pricing"
         title="Straightforward plans, designed to read like a product."
         description="Clear progression, fewer distractions, and a clean comparison between what each scope handles."
       />
 
-      <div className="mt-20 grid gap-6 lg:mt-24 xl:grid-cols-3">
+      <div className="mt-24 grid gap-6 lg:mt-28 xl:grid-cols-3">
         {PLANS.map((plan) => (
           <article
             key={plan.name}
-            className={`relative flex flex-col rounded-2xl p-8 transition-all ${
+            className={`theme-card relative flex flex-col p-8 transition-all ${
               plan.featured
-                ? "bg-zinc-950 text-white shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:bg-zinc-50 dark:text-zinc-950"
-                : "bg-white shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:bg-zinc-900/40 dark:shadow-none"
+                ? "border-brand-500/45 bg-[#fdf0f1] dark:bg-[#2a1a19]"
+                : ""
             }`}
           >
             {plan.featured && (
@@ -71,19 +71,19 @@ export default function Pricing() {
               </div>
             )}
 
-            <h3 className={`font-display text-2xl font-bold ${plan.featured ? "" : "text-zinc-950 dark:text-zinc-50"}`}>
+            <h3 className="font-display text-[2rem] text-[#241913] dark:text-[#fff7ec]">
               {plan.name}
             </h3>
             <div className="mt-4 flex items-end gap-2">
-              <span className="font-display text-5xl font-bold tracking-tight">
+              <span className="font-display text-[3.2rem] tracking-tight text-[#241913] dark:text-[#fff7ec]">
                 ${plan.price}
               </span>
-              <span className={`pb-2 text-sm font-medium ${plan.featured ? "text-zinc-400 dark:text-zinc-500" : "text-zinc-500 dark:text-zinc-400"}`}>
+              <span className="pb-2 text-sm font-medium text-[#8a6c57] dark:text-[#a99478]">
                 per month
               </span>
             </div>
 
-            <div className={`mt-8 h-px w-full ${plan.featured ? "bg-zinc-800 dark:bg-zinc-200" : "bg-zinc-100 dark:bg-zinc-800"}`} />
+            <div className="mt-8 border-t border-[#ded1bf] dark:border-[#3a2c21]" />
 
             <ul className="mt-8 flex-1 space-y-4">
               {plan.features.map((feature) => (
@@ -92,7 +92,7 @@ export default function Pricing() {
                   className="flex items-center gap-3 text-[15px] font-medium"
                 >
                   <Check className={`h-5 w-5 shrink-0 ${plan.featured ? "text-brand-500" : "text-brand-500"}`} />
-                  <span className={plan.featured ? "text-zinc-300 dark:text-zinc-700" : "text-zinc-600 dark:text-zinc-300"}>
+                  <span className="text-[#5f4c3d] dark:text-[#d9ccb9]">
                     {feature}
                   </span>
                 </li>
@@ -100,13 +100,21 @@ export default function Pricing() {
             </ul>
 
             <Link
-              className={`mt-10 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-[15px] font-bold transition active:scale-[0.98] ${
+              className={`relative mt-10 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-[15px] font-bold transition ${
                 plan.featured
-                  ? "bg-white text-zinc-950 hover:bg-zinc-200 dark:bg-zinc-950 dark:text-white dark:hover:bg-zinc-800"
-                  : "bg-zinc-100 text-zinc-950 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700"
+                  ? "bg-brand-500 text-white hover:bg-brand-600"
+                  : "bg-[#fff8ef] text-[#241913] hover:bg-[#f8efe2] dark:bg-[#241c16] dark:text-[#f6ecde] dark:hover:bg-[#2a211b]"
               }`}
               href="/contact"
             >
+              <span
+                aria-hidden="true"
+                className={`pointer-events-none absolute inset-[5px] rounded-full border-2 border-dashed ${
+                  plan.featured
+                    ? "border-white/55"
+                    : "border-[#dfcfbc] dark:border-[#4d3a2c]"
+                }`}
+              />
               {plan.featured ? "Choose Growth" : "Talk to RedSheel"}
             </Link>
           </article>
