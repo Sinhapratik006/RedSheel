@@ -1,23 +1,50 @@
+"use client";
+
+import { motion } from "framer-motion";
+import SectionShell from "./SectionShell";
+import BentoCard from "./BentoCard";
+
 const STATS = [
-  { num: "12", sup: "M+", label: "Impressions Driven" },
-  { num: "4.8", sup: "×",  label: "Avg. Engagement Lift" },
-  { num: "80",  sup: "+",  label: "Brands Grown" },
-  { num: "98",  sup: "%",  label: "Client Retention" },
+  { num: "12", sup: "M+", label: "Impressions driven" },
+  { num: "4.8", sup: "x", label: "Average engagement lift" },
+  { num: "80", sup: "+", label: "Brands grown" },
+  { num: "98", sup: "%", label: "Client retention" },
 ];
+
+const staggerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+};
 
 export default function Stats() {
   return (
-    <div className="rs-stats">
-      <div className="rs-stats-grid">
-        {STATS.map((s) => (
-          <div className="rs-stat-item rs-reveal" key={s.label}>
-            <div className="rs-stat-num">
-              {s.num}<span>{s.sup}</span>
-            </div>
-            <div className="rs-stat-label">{s.label}</div>
-          </div>
+    <SectionShell noPadding className="pb-16 pt-4 sm:pb-24 sm:pt-8">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerVariants}
+        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {STATS.map((stat) => (
+          <motion.div key={stat.label} variants={fadeUp}>
+            <BentoCard className="flex h-full flex-col justify-center p-8 text-center">
+              <div className="font-display text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+                {stat.num}
+                <span className="text-brand-500">{stat.sup}</span>
+              </div>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.15em] text-zinc-500">
+                {stat.label}
+              </p>
+            </BentoCard>
+          </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </SectionShell>
   );
 }

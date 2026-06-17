@@ -1,0 +1,20 @@
+<svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">RedSheel mark</title>
+  <desc id="desc">A refined red community signal mark with a contained angular X.</desc>
+  <defs>
+    <linearGradient id="redFill" x1="6" y1="6" x2="46" y2="45" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF4B57"/>
+      <stop offset="0.4" stop-color="#FF1830"/>
+      <stop offset="1" stop-color="#C8001A"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M25.6 7.7C14.7 7.7 6.4 14.5 6.4 23.8C6.4 29.7 10 34.5 15.4 37.3L13.6 44.5L21.5 40.1C22.8 40.3 24.2 40.5 25.6 40.5C36.5 40.5 44.8 33.4 44.8 23.8C44.8 14.5 36.5 7.7 25.6 7.7Z" fill="url(#redFill)"/>
+  <path d="M35.3 9.2L39.2 3.5L46.3 7.3" stroke="#FF4B57" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46.3" cy="7.3" r="3.5" fill="#FF1830"/>
+
+  <g transform="translate(15.8 14.4) scale(0.82)">
+    <path d="M2.6 3.2H8.1L12.9 10L18.6 3.2H24L15.7 13.3L25 26.1H19.4L12.9 16.9L5.1 26.1H0L10 13.3L2.6 3.2Z" fill="#09090B" fill-opacity="0.4"/>
+    <path d="M2.6 1H8.1L12.9 7.8L18.6 1H24L15.7 11.1L25 23.9H19.4L12.9 14.7L5.1 23.9H0L10 11.1L2.6 1Z" fill="#FFF7F2"/>
+  </g>
+</svg>
