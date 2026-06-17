@@ -3,7 +3,7 @@
 import { useMemo, useEffect, useState } from "react";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { ExternalLink } from "lucide-react";
-import { fraunces } from "../lib/fonts";
+import { display } from "../lib/fonts";
 import SectionHeading from "./SectionHeading";
 import SectionShell from "./SectionShell";
 import { CAL_BOOKING_LINK } from "../config";
@@ -118,16 +118,16 @@ export default function Booking() {
   }, [hasBookingLink]);
 
   return (
-    <SectionShell id="booking" noPadding className="pt-44 pb-24 lg:pt-52 lg:pb-32">
+    <SectionShell id="booking" noPadding className="pb-20 pt-36 sm:pb-24 sm:pt-44 lg:pb-32 lg:pt-52">
       <SectionHeading
         eyebrow="Book a call"
         title="A booking flow that feels native to the site."
         description="Simple context on the left, clean scheduling on the right, and no extra friction before the conversation starts."
       />
 
-      <div className="mt-24 grid gap-6 lg:mt-28 xl:grid-cols-[0.84fr_1.16fr] xl:items-start">
-        <div className="theme-card p-8">
-          <h2 className={`${fraunces.className} text-[2.2rem] tracking-tight text-[#241913] dark:text-[#fff7ec]`}>
+      <div className="mt-16 grid gap-4 sm:gap-6 lg:mt-28 xl:grid-cols-[0.84fr_1.16fr] xl:items-start">
+        <div className="theme-card p-5 sm:p-8">
+          <h2 className={`${display.className} text-[1.8rem] tracking-tight text-[#241913] dark:text-[#fff7ec] sm:text-[2.2rem]`}>
             Book a focused strategy call.
           </h2>
           <p className="theme-copy mt-4 max-w-xl text-[15px] leading-relaxed">
@@ -153,7 +153,7 @@ export default function Booking() {
 
           {hasBookingLink ? (
             <a
-              className="group relative mt-10 inline-flex items-center justify-center rounded-full bg-brand-500 px-7 py-3.5 text-[15px] font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_16px_34px_rgba(243,68,81,0.24)] transition hover:bg-brand-600"
+              className="group relative mt-10 inline-flex w-full items-center justify-center rounded-full bg-brand-500 px-5 py-3.5 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_16px_34px_rgba(243,68,81,0.24)] transition hover:bg-brand-600 sm:w-auto sm:px-7 sm:text-[15px]"
               href={bookingUrl}
               target="_blank"
               rel="noreferrer"
@@ -180,7 +180,7 @@ export default function Booking() {
 
         <div className="theme-card p-3 sm:p-4">
           {hasBookingLink ? (
-            <div className="relative w-full min-h-[520px] max-h-[560px] overflow-y-auto overflow-x-hidden rounded-[22px] border border-[#ded1bf] bg-[#fff9f1] pr-1 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] dark:border-[#3a2c21] dark:bg-[#1d1713] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)]">
+            <div className="relative min-h-[460px] max-h-[520px] w-full overflow-y-auto overflow-x-hidden rounded-[20px] border border-[#ded1bf] bg-[#fff9f1] pr-1 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] dark:border-[#3a2c21] dark:bg-[#1d1713] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)] sm:min-h-[520px] sm:max-h-[560px] sm:rounded-[22px]">
               {!isLoaded && (
                 <div className="absolute inset-0 z-0 flex flex-col bg-[#fff9f1] p-4 sm:p-6 dark:bg-[#1d1713]">
                   {/* Top Details Skeleton */}
@@ -236,9 +236,9 @@ export default function Booking() {
               </div>
             </div>
           ) : (
-            <div className="theme-card-muted flex min-h-[640px] items-center justify-center p-8 text-center">
+            <div className="theme-card-muted flex min-h-[460px] items-center justify-center p-5 text-center sm:min-h-[640px] sm:p-8">
               <div className="max-w-md">
-                <p className={`${fraunces.className} text-[2rem] text-[#241913] dark:text-[#fff7ec]`}>
+                <p className={`${display.className} text-[2rem] text-[#241913] dark:text-[#fff7ec]`}>
                   Cal.com embed placeholder
                 </p>
                 <p className="theme-copy mt-3 text-[15px] leading-relaxed">

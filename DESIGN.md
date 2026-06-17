@@ -15,12 +15,12 @@ colors:
   darkCopy: "#b7a28a"
 typography:
   display:
-    fontFamily: "Fraunces"
+    fontFamily: "Plus Jakarta Sans"
     weights: "400, 700"
   body:
-    fontFamily: "JetBrains Mono"
+    fontFamily: "Manrope"
   mono:
-    fontFamily: "JetBrains Mono"
+    fontFamily: "Geist Mono"
 spacing:
   container: "max-w-7xl with px-5 sm:px-8 lg:px-12"
   section: "py-20/24/28 for compact home sections, py-24/28/32 for standard sections, pt-44 lg:pt-52 for page intros"
@@ -39,9 +39,10 @@ RedSheel is a focused community-growth marketing site. The design should feel sh
 
 - **Page shell:** light `#f5efe4`, dark `#17120f`.
 - **Primary accent:** `#f34451`; hover/deeper accent `#d93240`.
-- **Display type:** Fraunces for major headings, card metrics, and editorial labels.
-- **Body type:** JetBrains Mono for navigation, body copy, buttons, labels, and utility text.
-- **Letter spacing:** keep normal for headings and body; use uppercase mono tracking only for small pills and eyebrow labels.
+- **Display type:** Plus Jakarta Sans for major headings, card metrics, and sharp marketing labels.
+- **Body type:** Manrope for navigation, body copy, buttons, and most interface text.
+- **Utility type:** Geist Mono only for small pills, handles, and eyebrow labels.
+- **Letter spacing:** keep normal for headings and body; use uppercase mono tracking only for tiny utility text.
 - **Copy style:** plain, short, useful. No jargon-heavy marketing paragraphs.
 
 ## Layout And Containers

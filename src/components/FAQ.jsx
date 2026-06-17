@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { fraunces } from "../lib/fonts";
+import { display } from "../lib/fonts";
 import SectionShell from "./SectionShell";
 
 const FAQS = [
@@ -38,9 +38,9 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <SectionShell id="faq" noPadding className="py-20 sm:py-24 lg:py-28">
+    <SectionShell id="faq" noPadding className="py-14 sm:py-24 lg:py-28">
       <motion.div
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
@@ -50,24 +50,24 @@ export default function FAQ() {
           <p className="theme-pill">
             FAQ
           </p>
-          <h2 className={`${fraunces.className} mt-3 text-[2.25rem] leading-none text-[#241913] dark:text-[#fff7ec] sm:text-[3rem]`}>
+          <h2 className={`${display.className} mt-3 text-[1.7rem] leading-none text-[#241913] dark:text-[#fff7ec] sm:text-[3rem]`}>
             Quick answers
           </h2>
         </motion.div>
 
         <motion.div
           variants={fadeInUp}
-          className="mt-10 divide-y divide-[#dfcebb] border-y border-[#dfcebb] dark:divide-[#3a2c21] dark:border-[#3a2c21]"
+          className="mt-7 divide-y divide-[#dfcebb] border-y border-[#dfcebb] dark:divide-[#3a2c21] dark:border-[#3a2c21] sm:mt-10"
         >
           {FAQS.map(([question, answer], index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div key={question} className="py-5 text-left sm:py-6">
+              <div key={question} className="py-4 text-left sm:py-6">
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="flex w-full cursor-pointer items-center justify-between gap-4 text-left text-[15px] font-semibold text-[#241913] transition hover:text-brand-500 dark:text-[#fff7ec] dark:hover:text-brand-300 sm:text-base"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 text-left text-[0.9rem] font-semibold text-[#241913] transition hover:text-brand-500 dark:text-[#fff7ec] dark:hover:text-brand-300 sm:text-base"
                   aria-expanded={isOpen}
                 >
                 {question}
@@ -90,7 +90,7 @@ export default function FAQ() {
                   transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="max-w-xl text-sm leading-6 text-[#7a614d] dark:text-[#a99478]">
+                  <p className="max-w-xl text-[0.82rem] leading-5 text-[#7a614d] dark:text-[#a99478] sm:text-sm sm:leading-6">
                     {answer}
                   </p>
                 </motion.div>

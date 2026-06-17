@@ -13,7 +13,7 @@ Guide future RedSheel website edits so every page feels like one product: warm, 
 
 ## Brand
 
-RedSheel helps brands build authority across Reddit, X, Hacker News, Discord, and LinkedIn. The interface should feel like a calm strategy system, not a loud startup landing page. Use editorial display type, mono utility text, cream surfaces, dark roasted-brown mode, red accents, dashed separators, and bento layouts.
+RedSheel helps brands build authority across Reddit, X, Hacker News, Discord, and LinkedIn. The interface should feel like a calm strategy system, not a loud startup landing page. Use polished sans display type, restrained mono utility text, cream surfaces, dark roasted-brown mode, red accents, dashed separators, and bento layouts.
 
 ## Tokens And Foundations
 
@@ -29,8 +29,9 @@ RedSheel helps brands build authority across Reddit, X, Hacker News, Discord, an
 - Dark muted: `#1d1713`.
 - Dark text: `#fff7ec`.
 - Dark copy: `#b7a28a`.
-- Display font: Fraunces.
-- Body and mono font: JetBrains Mono.
+- Display font: Plus Jakarta Sans.
+- Body font: Manrope.
+- Mono utility font: Geist Mono.
 - Main container: `max-w-7xl px-5 sm:px-8 lg:px-12`.
 - Card radius: `26px`.
 - Muted/tool radius: `22px`.

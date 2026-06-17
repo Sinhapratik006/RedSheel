@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionShell from "./SectionShell";
-import { fraunces } from "../lib/fonts";
+import { display } from "../lib/fonts";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 15 },
@@ -26,9 +26,9 @@ export default function PageIntro({
   const copyWidth = align === "center" ? "mx-auto" : "";
 
   return (
-    <SectionShell noPadding className="pt-44 lg:pt-52 pb-12">
+    <SectionShell noPadding className="pb-10 pt-36 sm:pt-44 lg:pt-52 lg:pb-12">
       <motion.div
-        initial="hidden"
+        initial={false}
         animate="visible"
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         className={`flex flex-col max-w-4xl ${alignClass}`}
@@ -45,7 +45,7 @@ export default function PageIntro({
 
         <motion.h1
           variants={fadeInUp}
-          className={`${fraunces.className} mt-8 max-w-3xl text-[2.85rem] font-medium leading-[0.96] text-[#241913] dark:text-[#fff7ec] sm:text-[4rem] ${copyWidth}`}
+          className={`${display.className} mt-6 max-w-3xl text-[1.95rem] font-medium leading-[1] text-[#241913] dark:text-[#fff7ec] sm:mt-8 sm:text-[3.15rem] lg:text-[4rem] ${copyWidth}`}
         >
           {title}
         </motion.h1>
@@ -53,7 +53,7 @@ export default function PageIntro({
         {description && (
           <motion.p
             variants={fadeInUp}
-            className={`theme-copy mt-6 max-w-2xl text-[1.02rem] leading-8 ${copyWidth}`}
+            className={`theme-copy mt-4 max-w-2xl text-[0.9rem] leading-6 sm:mt-6 sm:text-[1.02rem] sm:leading-8 ${copyWidth}`}
           >
             {description}
           </motion.p>
