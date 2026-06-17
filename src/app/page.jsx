@@ -1,16 +1,18 @@
 "use client";
 
 import Hero from "../components/Hero";
+import Communities from "../components/Communities";
 import HomeOverview from "../components/HomeOverview";
+import FAQ from "../components/FAQ";
 import SiteCanvas from "../components/SiteCanvas";
-import Stats from "../components/Stats";
 
 export default function Page() {
   return (
     <SiteCanvas>
       <Hero />
-      <Stats />
+      <Communities />
       <HomeOverview />
+      <FAQ />
     </SiteCanvas>
   );
 }

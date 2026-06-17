@@ -33,12 +33,12 @@ export default function Stats() {
       >
         {STATS.map((stat) => (
           <motion.div key={stat.label} variants={fadeUp}>
-            <BentoCard className="flex h-full flex-col justify-center p-8 text-center">
-              <div className="font-display text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+            <BentoCard className="flex h-full rotate-[-0.6deg] flex-col justify-center p-8 text-center">
+              <div className="font-display text-[3.35rem] leading-none text-[#241913] dark:text-[#fff7ec]">
                 {stat.num}
                 <span className="text-brand-500">{stat.sup}</span>
               </div>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.15em] text-zinc-500">
+              <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#8a6c57] dark:text-[#a99478]">
                 {stat.label}
               </p>
             </BentoCard>

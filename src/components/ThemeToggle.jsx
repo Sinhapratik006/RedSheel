@@ -32,7 +32,7 @@ export default function ThemeToggle() {
       type="button"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       aria-pressed={isDark}
-      className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 text-zinc-700 transition hover:bg-zinc-200 disabled:cursor-default disabled:opacity-70 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800"
+      className="flex h-10 w-10 items-center justify-center rounded-full bg-[#fff8ef] text-[#6f5947] transition hover:bg-[#f8efe2] disabled:cursor-default disabled:opacity-70 dark:bg-[#241c16] dark:text-[#f6ecde] dark:hover:bg-[#2b221c]"
       disabled={!mounted}
       onClick={handleToggle}
     >

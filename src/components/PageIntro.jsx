@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionShell from "./SectionShell";
+import { fraunces } from "../lib/fonts";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 15 },
@@ -25,7 +26,7 @@ export default function PageIntro({
   const copyWidth = align === "center" ? "mx-auto" : "";
 
   return (
-    <SectionShell noPadding className="pt-40 lg:pt-48 pb-8">
+    <SectionShell noPadding className="pt-44 lg:pt-52 pb-12">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -35,7 +36,7 @@ export default function PageIntro({
         {eyebrow && (
           <motion.div
             variants={fadeInUp}
-            className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-bold text-zinc-600 shadow-[0_4px_12px_rgba(0,0,0,0.03)] dark:bg-zinc-900/40 dark:text-zinc-400 dark:shadow-none"
+            className="theme-pill"
           >
             <span className="h-2 w-2 rounded-full bg-brand-500"></span>
             {eyebrow}
@@ -44,7 +45,7 @@ export default function PageIntro({
 
         <motion.h1
           variants={fadeInUp}
-          className={`mt-6 max-w-3xl font-display text-4xl font-bold leading-tight tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-5xl lg:text-5xl ${copyWidth}`}
+          className={`${fraunces.className} mt-8 max-w-3xl text-[2.85rem] font-medium leading-[0.96] text-[#241913] dark:text-[#fff7ec] sm:text-[4rem] ${copyWidth}`}
         >
           {title}
         </motion.h1>
@@ -52,7 +53,7 @@ export default function PageIntro({
         {description && (
           <motion.p
             variants={fadeInUp}
-            className={`mt-5 max-w-2xl text-[17px] leading-relaxed text-zinc-600 dark:text-zinc-400 ${copyWidth}`}
+            className={`theme-copy mt-6 max-w-2xl text-[1.02rem] leading-8 ${copyWidth}`}
           >
             {description}
           </motion.p>

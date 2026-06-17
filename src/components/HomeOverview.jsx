@@ -1,11 +1,12 @@
 "use client";
 
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { fraunces } from "../lib/fonts";
 import SectionHeading from "./SectionHeading";
 import SectionShell from "./SectionShell";
-import BentoCard from "./BentoCard";
 
 const PREVIEWS = [
   {
@@ -20,13 +21,9 @@ const PREVIEWS = [
     title: "Proof that strategy turns into demand.",
     body: "See the traffic lifts, cheaper acquisition, and authority gains that come from sharper conversation design.",
   },
-  {
-    href: "/pricing",
-    label: "Pricing",
-    title: "Straightforward retainers for focused execution.",
-    body: "Clear scopes built around momentum, visibility, and conversion quality.",
-  },
 ];
+
+const PLATFORMS = ["Reddit", "X", "Hacker News", "Discord", "LinkedIn"];
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -37,9 +34,74 @@ const cardVariants = {
   },
 };
 
+const tileBase =
+  "h-full rounded-[26px] border transition-[transform,border-color,box-shadow] hover:border-brand-500/45 hover:shadow-[0_22px_55px_rgba(243,68,81,0.12)] dark:hover:border-brand-400/45 dark:hover:shadow-[0_24px_62px_rgba(243,68,81,0.16)]";
+
+function HoverTile({ href, className = "", children }) {
+  const tileRef = useRef(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [magnet, setMagnet] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+  const Component = href ? Link : "div";
+  const componentProps = href ? { href } : {};
+
+  const handleMouseMove = (event) => {
+    if (!tileRef.current) return;
+    const rect = tileRef.current.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    setPosition({ x, y });
+    setMagnet({
+      x: ((x - rect.width / 2) / rect.width) * 7,
+      y: ((y - rect.height / 2) / rect.height) * 7,
+    });
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    setOpacity(0);
+    setMagnet({ x: 0, y: 0 });
+  };
+
+  return (
+    <Component
+      {...componentProps}
+      ref={tileRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`group relative overflow-hidden ${
+        isHovering ? "duration-150 ease-out" : "duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+      } ${className}`}
+      style={{
+        transform: `translate3d(${magnet.x}px, ${magnet.y}px, 0)`,
+      }}
+    >
+      <div className="pointer-events-none absolute inset-x-5 top-0 z-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-brand-500/70 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+      <div className="pointer-events-none absolute right-5 top-5 z-0 h-2 w-2 rounded-full bg-brand-500/0 transition group-hover:bg-brand-500/80 group-hover:shadow-[0_0_22px_rgba(243,68,81,0.55)]" />
+      <div
+        className="pointer-events-none absolute -inset-px z-0 opacity-0 transition-opacity duration-500"
+        style={{
+          opacity,
+          background: `radial-gradient(520px circle at ${position.x}px ${position.y}px, rgba(243,68,81,0.14), transparent 42%)`,
+        }}
+      />
+      <div className="relative z-10 flex h-full flex-col">
+        {children}
+      </div>
+    </Component>
+  );
+}
+
 export default function HomeOverview() {
   return (
-    <SectionShell>
+    <SectionShell noPadding className="py-20 sm:py-24 lg:py-28">
       <SectionHeading
         eyebrow="Explore RedSheel"
         title="Move through the system by decision."
@@ -51,27 +113,148 @@ export default function HomeOverview() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-        className="mt-20 grid gap-6 lg:mt-24 lg:grid-cols-3"
+        className="mt-20 grid auto-rows-[minmax(180px,auto)] gap-4 sm:grid-cols-2 lg:mt-24 lg:grid-cols-6"
       >
-        {PREVIEWS.map((item) => (
-          <motion.div key={item.href} variants={cardVariants}>
-            <BentoCard href={item.href} className="h-full p-8">
-              <p className="text-xs font-bold uppercase tracking-wider text-brand-500">
-                {item.label}
+        <motion.div variants={cardVariants} className="sm:col-span-2 lg:col-span-4 lg:row-span-2">
+          <HoverTile
+            href={PREVIEWS[0].href}
+            className={`${tileBase} flex min-h-[360px] flex-col justify-between overflow-hidden border-[#d6c7b4] bg-[#fff9f1] p-7 dark:border-[#4a392b] dark:bg-[#241c16] sm:p-9`}
+          >
+            <div className="flex h-full flex-col justify-between">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-500">
+                {PREVIEWS[0].label}
               </p>
-              <h2 className="mt-5 font-display text-2xl font-bold leading-snug text-zinc-950 dark:text-zinc-50">
-                {item.title}
+              <h2 className={`${fraunces.className} mt-6 max-w-2xl text-[2.35rem] leading-[0.96] text-[#241913] dark:text-[#fff7ec] sm:text-[3.15rem]`}>
+                {PREVIEWS[0].title}
               </h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
-                {item.body}
+              <p className="theme-copy mt-5 max-w-xl text-[1.02rem] leading-7">
+                {PREVIEWS[0].body}
               </p>
-              <div className="mt-8 flex items-center text-sm font-bold text-zinc-950 dark:text-zinc-50">
-                View page 
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </div>
+            <div className="mt-10 flex flex-wrap gap-2">
+              {["Positioning", "Founder voice", "Campaign rhythm"].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[#ddccba] bg-[#fbf2e6] px-3 py-1.5 text-[12px] text-[#6f5947] dark:border-[#3b2d22] dark:bg-[#19130f] dark:text-[#d9ccb9]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+            </div>
+          </HoverTile>
+        </motion.div>
+
+        <motion.div variants={cardVariants} className="lg:col-span-2">
+          <HoverTile
+            href={PREVIEWS[1].href}
+            className={`${tileBase} flex min-h-[220px] flex-col justify-between border-[#d6c7b4] bg-[#fbf2e6] p-7 dark:border-[#3a2c21] dark:bg-[#1d1713]`}
+          >
+            <div className="flex h-full flex-col justify-between">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-500">
+                {PREVIEWS[1].label}
+              </p>
+              <h3 className={`${fraunces.className} mt-5 text-[2rem] leading-[0.98] text-[#241913] dark:text-[#fff7ec]`}>
+                {PREVIEWS[1].title}
+              </h3>
+            </div>
+            <p className="theme-copy mt-5 text-[15px] leading-7">
+              {PREVIEWS[1].body}
+            </p>
+            </div>
+          </HoverTile>
+        </motion.div>
+
+        <motion.div variants={cardVariants} className="lg:col-span-2">
+          <HoverTile className={`${tileBase} flex h-full min-h-[220px] flex-col justify-between border-[#d6c7b4] bg-[#fff9f1] p-7 dark:border-[#4a392b] dark:bg-[#241c16]`}>
+            <div className="flex h-full flex-col justify-between">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#8a6c57] dark:text-[#a99478]">
+              Platforms
+            </p>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {PLATFORMS.map((platform) => (
+                <span
+                  key={platform}
+                  className="rounded-full bg-[#f2e6d8] px-3 py-2 text-sm text-[#5f4c3d] dark:bg-[#2a2019] dark:text-[#d9ccb9]"
+                >
+                  {platform}
+                </span>
+              ))}
+            </div>
+            </div>
+          </HoverTile>
+        </motion.div>
+
+        <motion.div variants={cardVariants} className="lg:col-span-2">
+          <HoverTile
+            href="/results"
+            className={`${tileBase} flex min-h-[180px] flex-col justify-between border-[#241913] bg-[#241913] p-7 text-[#fff7ec] dark:border-[#5b4736] dark:bg-[#fff7ec] dark:text-[#241913]`}
+          >
+            <div className="flex h-full flex-col justify-between">
+            <p className={`${fraunces.className} text-[3.1rem] leading-none`}>
+              12M+
+            </p>
+            <div>
+              <p className="text-[15px] font-medium">Impressions driven</p>
+              <p className="mt-2 text-sm text-[#e7d8c6] dark:text-[#6f5947]">
+                Demand signals across high-intent communities.
+              </p>
+            </div>
+            </div>
+          </HoverTile>
+        </motion.div>
+
+        <motion.div variants={cardVariants} className="lg:col-span-2">
+          <HoverTile className={`${tileBase} flex h-full min-h-[180px] flex-col justify-between border-[#d6c7b4] bg-[#fbf2e6] p-7 dark:border-[#3a2c21] dark:bg-[#1d1713]`}>
+            <div className="flex h-full flex-col justify-between">
+            <p className={`${fraunces.className} text-[3.1rem] leading-none text-[#241913] dark:text-[#fff7ec]`}>
+              4.8x
+            </p>
+            <div>
+              <p className="text-[15px] font-medium text-[#241913] dark:text-[#f6ecde]">
+                Average engagement lift
+              </p>
+              <p className="mt-2 text-sm text-[#7a614d] dark:text-[#a99478]">
+                Stronger replies, sharper creative, cleaner handoffs.
+              </p>
+            </div>
+            </div>
+          </HoverTile>
+        </motion.div>
+
+        <motion.div variants={cardVariants} className="sm:col-span-2 lg:col-span-2">
+          <HoverTile
+            href="/contact"
+            className={`${tileBase} flex min-h-[180px] flex-col justify-between border-[#d6c7b4] bg-[#fff9f1] p-7 dark:border-[#4a392b] dark:bg-[#241c16]`}
+          >
+            <div className="flex h-full flex-col justify-between">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <p className={`${fraunces.className} text-[2.4rem] leading-none text-[#241913] dark:text-[#fff7ec]`}>
+                  80+
+                </p>
+                <p className="mt-2 text-sm text-[#7a614d] dark:text-[#a99478]">
+                  Brands grown
+                </p>
               </div>
-            </BentoCard>
-          </motion.div>
-        ))}
+              <div>
+                <p className={`${fraunces.className} text-[2.4rem] leading-none text-[#241913] dark:text-[#fff7ec]`}>
+                  98%
+                </p>
+                <p className="mt-2 text-sm text-[#7a614d] dark:text-[#a99478]">
+                  Client retention
+                </p>
+              </div>
+            </div>
+            <div className="mt-8 flex items-center text-sm font-medium text-[#241913] dark:text-[#fff7ec]">
+              Explore fit
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </div>
+            </div>
+          </HoverTile>
+        </motion.div>
       </motion.div>
     </SectionShell>
   );

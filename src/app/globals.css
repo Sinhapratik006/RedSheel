@@ -3,8 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: var(--font-geist);
-  --font-display: var(--font-geist);
+  --font-sans: var(--font-jetbrains);
+  --font-display: var(--font-fraunces);
+  --font-mono: var(--font-jetbrains);
 
   --color-ink-950: #09090b;
   --color-ink-900: #111114;
@@ -18,10 +19,10 @@
   --color-ash-400: #71717a;
   --color-ash-500: #a1a1aa;
 
-  --color-brand-300: #ff7a84;
-  --color-brand-400: #ff2f43;
-  --color-brand-500: #e50920;
-  --color-brand-600: #b70719;
+  --color-brand-300: #ff7b84;
+  --color-brand-400: #ff5c67;
+  --color-brand-500: #f34451;
+  --color-brand-600: #d93240;
 
   --color-reddit-500: #ff4500;
   --color-skyx-500: #1d9bf0;
@@ -33,7 +34,17 @@
   }
 
   body {
-    @apply overflow-x-hidden bg-[#f7f7f5] text-zinc-950 dark:bg-[#080808] dark:text-zinc-50;
+    font-family: var(--font-jetbrains), monospace;
+    @apply overflow-x-hidden bg-[#f5efe4] text-zinc-950 dark:bg-[#17120f] dark:text-zinc-50;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), serif;
+    font-weight: 400;
+    letter-spacing: 0;
   }
 
   ::selection {
@@ -46,7 +57,59 @@
   }
 }
 
+@layer components {
+  .theme-shell {
+    @apply bg-[#f5efe4] text-[#221913] dark:bg-[#17120f] dark:text-[#f6ecde];
+  }
+
+  .theme-border {
+    @apply border border-[#d6c7b4] dark:border-[#4a392b];
+  }
+
+  .theme-card {
+    @apply rounded-[26px] border border-[#d6c7b4] bg-[#fff9f1] shadow-[0_18px_45px_rgba(74,39,21,0.08)] dark:border-[#4a392b] dark:bg-[#241c16] dark:shadow-[0_22px_60px_rgba(0,0,0,0.28)];
+  }
+
+  .theme-card-muted {
+    @apply rounded-[22px] border border-[#ded1bf] bg-[#fbf4ea] dark:border-[#3a2c21] dark:bg-[#1d1713];
+  }
+
+  .theme-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-[#d8c8b5] bg-[#fff7ee] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#8a6c57] dark:border-[#463427] dark:bg-[#201813] dark:text-[#b79f84];
+  }
+
+  .theme-copy {
+    @apply text-[#6f5947] dark:text-[#b7a28a];
+  }
+}
+
 @layer utilities {
+  @keyframes community-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-33.333% - 0.5rem));
+    }
+  }
+
+  .community-marquee {
+    animation: community-marquee 28s linear infinite;
+  }
+
+  .community-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .community-marquee {
+      animation: none;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
