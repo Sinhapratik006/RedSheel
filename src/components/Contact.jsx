@@ -12,7 +12,7 @@ const TEAM_HANDLES = [
   {
     role: "Founder",
     name: "Shreyansh",
-    handle: "@ShreyanshM10802",
+    handle: "@shreyanshmalviy",
   },
   {
     role: "Co-founder and dev",

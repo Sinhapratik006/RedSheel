@@ -7,4 +7,4 @@ export const CAL_BOOKING_LINK = process.env.NEXT_PUBLIC_CAL_LINK || "redsheel/30
 
 export const SITE_NAME = "RedSheel";
 export const SITE_TAGLINE = "Reddit & X Marketing Agency";
-export const COPYRIGHT_YEAR = "2025";
+export const COPYRIGHT_YEAR = "2026";
